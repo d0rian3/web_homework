@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Виртуальные окружения
+venv/
+env/
+.venv/
+
+# Django SQLite базы данных
+*.sqlite3
+
+# Django media и static-файлы (если собираются вручную)
+media/
+staticfiles/
+
+# Логи
+*.log
+
+# Файлы конфигурации окружения
+.env
+.env.*
+
+# Pytest
+.cache/
+
+# VS Code и другие IDE
+.vscode/
+.idea/
+
+# ОС-мусор
+.DS_Store
+Thumbs.db
+
+# Миграции можно игнорировать, если проект общий и вы их регенерируете (опционально)
+# */migrations/
+# !*/migrations/__init__.py
