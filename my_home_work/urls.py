@@ -1,22 +1,17 @@
-"""
-URL configuration for my_home_work project.
+from django.urls import path, include, re_path
+from myapp.views import main, my_feed, create,profile,register,set_password,login,logout,data_sort
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
-from django.urls import path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('/', main),
+    path('/my-feed/', my_feed),
+    path('article/', include('myapp.urls')),
+    path('topics/', include('myapp.urls')),
+    path('create/', create),
+    path('profile/', profile),
+    path('register/', register),
+    path('set_password/', set_password),
+    path('login/', login),
+    path('logout/', logout),
+    re_path(r'^(?P<year>[1-9]\d{3})/(?P<month>0[1-9]|1[0-2])/$', data_sort),
 ]
