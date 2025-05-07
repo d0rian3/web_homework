@@ -1,14 +1,17 @@
 from django.http import HttpResponse, HttpRequest, Http404
+from django.shortcuts import render
 
 
 def main(request: HttpRequest) -> HttpResponse:
-    return HttpResponse("Hey! It's your main view!!")
+    return render(request, 'base.html')
+
 
 def my_feed(request: HttpRequest) -> HttpResponse:
-    return HttpResponse("A page that will only have articles on topics the user is subscribed to.")
+    return render(request, 'my_feed.html')
 
 def article(request: HttpRequest) -> HttpResponse:
     return HttpResponse("The page on which the id article will be displayed.")
+
 
 def article_comment(request: HttpRequest) -> HttpResponse:
     return HttpResponse("The address we will use to write comments to the article")
@@ -22,19 +25,19 @@ def article_delete(request: HttpRequest) -> HttpResponse:
 
 
 def create(request: HttpRequest) -> HttpResponse:
-    return HttpResponse(" The page where we will create new articles.")
+    return render(request, 'create.html')
 
 def topics(request: HttpRequest) -> HttpResponse:
     return HttpResponse("A page listing all the topics on the site")
 
-def topics_id(request: HttpRequest) -> HttpResponse:
+def topic_id(request: HttpRequest) -> HttpResponse:
     return HttpResponse(" Страница, со всеми статьями по определенной теме")
 
-def topics_id_subscribe(request: HttpRequest) -> HttpResponse:
+def topic_id_subscribe(request: HttpRequest) -> HttpResponse:
     return HttpResponse("A page listing all topics on the site Address to subscribe to a specific topic")
 
 
-def topics_id_unsubscribe(request: HttpRequest) -> HttpResponse:
+def topic_id_unsubscribe(request: HttpRequest) -> HttpResponse:
     return HttpResponse("A page listing all topics on the site Address to unsubscribe to a specific topic")
 
 def profile(request: HttpRequest) -> HttpResponse:
