@@ -12,6 +12,5 @@ urlpatterns = [
     path('register/', register, name="register"),
     path('set_password/', set_password, name="set_password"),
     path('login/', login, name="login"),
-    path('logout/', logout, name="logout"),
     re_path(r'^(?P<year>[1-9]\d{3})/(?P<month>0[1-9]|1[0-2])/$', data_sort, name="data_sort"),
 ]

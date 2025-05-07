@@ -10,14 +10,14 @@ def my_feed(request: HttpRequest) -> HttpResponse:
     return render(request, 'my_feed.html')
 
 def article(request: HttpRequest) -> HttpResponse:
-    return HttpResponse("The page on which the id article will be displayed.")
+    return HttpResponse("The page on which the id article will be displayed.") #! Page
 
 
 def article_comment(request: HttpRequest) -> HttpResponse:
     return HttpResponse("The address we will use to write comments to the article")
 
 def article_update(request: HttpRequest) -> HttpResponse:
-    return HttpResponse("The page we will use to modify an existing article.")
+    return HttpResponse("The page we will use to modify an existing article.") #! Page
 
 
 def article_delete(request: HttpRequest) -> HttpResponse:
@@ -28,29 +28,28 @@ def create(request: HttpRequest) -> HttpResponse:
     return render(request, 'create.html')
 
 def topics(request: HttpRequest) -> HttpResponse:
-    return HttpResponse("A page listing all the topics on the site")
+    return HttpResponse("A page listing all the topics on the site") #! Page
 
 def topic_id(request: HttpRequest) -> HttpResponse:
-    return HttpResponse(" Страница, со всеми статьями по определенной теме")
+    return HttpResponse(" Страница, со всеми статьями по определенной теме") #! Page
 
 def topic_id_subscribe(request: HttpRequest) -> HttpResponse:
-    return HttpResponse("A page listing all topics on the site Address to subscribe to a specific topic")
+    return HttpResponse("A page listing all topics on the site Address to subscribe to a specific topic") #! Page
 
 
 def topic_id_unsubscribe(request: HttpRequest) -> HttpResponse:
-    return HttpResponse("A page listing all topics on the site Address to unsubscribe to a specific topic")
+    return HttpResponse("A page listing all topics on the site Address to unsubscribe to a specific topic") #! Page
 
 def profile(request: HttpRequest) -> HttpResponse:
-    return HttpResponse("A page with user data and a list of subscriptions")
-
+    return render(request, 'profile.html')
 def register(request: HttpRequest) -> HttpResponse:
-    return HttpResponse("New user registration page")
+    return render(request, 'register.html')
 
 def set_password(request: HttpRequest) -> HttpResponse:
-    return HttpResponse("The page with the password change")
+    return render(request, 'set_pass.html')
 
 def login(request: HttpRequest) -> HttpResponse:
-    return HttpResponse("Page, for logging into the site")
+    return render(request, 'login.html')
 
 def logout(request: HttpRequest) -> HttpResponse:
     return HttpResponse("Address for leaving the site")
@@ -67,5 +66,5 @@ def data_sort(request: HttpRequest, year:int, month: int) -> HttpResponse:
 
     except(ValueError, TypeError):
         raise Http404("Incorrect date")
-    return HttpResponse(f"A page that will have articles created in a particular month.{month}/{year}")
+    return render(request, 'data_sort.html', {'year': year, 'month': month})
     
