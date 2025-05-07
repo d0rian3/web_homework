@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Default Title{% endblock %}</title>
+  </head>
+  <style>
+    nav {
+      width: 100vw;
+      display: flex;
+      justify-content: space-evenly;
+      background-color: #1a1a1a;
+      font-size: 17px;
+      font-weight: 20px;
+      padding: 10px 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-family: sans-serif;
+      a {
+        text-decoration: none;
+        color: #fafafa;
+      }
+    }
+  </style>
+  <body>
+    <nav>
+      <a href="{% url 'main' %}">Home</a>
+      <a href="{% url 'my_feed' %}">My Feed</a>
+      <a href="{% url 'create' %}">Create</a>
+      <a href="{% url 'profile' %}">Profile</a>
+      <a href="{% url 'register' %}">Register</a>
+      <a href="{% url 'set_password' %}">Set Password</a>
+      <a href="{% url 'login' %}">Login</a>
+      <a href="{% url 'data_sort' 2020 10 %}">Data Sort</a>
+    </nav>
+
+    {% block content %} {% endblock %}
+  </body>
+</html>
